@@ -1,0 +1,17 @@
+.lego-attention--bad-news, .lego-attention{
+	display:none;
+}
+
+.main-container{
+	height: 100%;
+}
+
+.inner-container{
+	width:100%;
+}
+
+.beta {
+	top: -0.9em;
+	font-size: 50%;
+}
+
