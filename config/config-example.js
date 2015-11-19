@@ -16,5 +16,8 @@ module.exports = {
       password: '',
       host: ''
     }
-  }  
+  },
+  public:{
+    environment: 'local';
+  }
 };

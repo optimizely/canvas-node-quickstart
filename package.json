@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "A project to help you get started with canvas using node.js and app engine",
   "repository": "https://github.com/optimizely/canvas-node-quickstart",
-  "private": true,
+  "private": false,
+  "author": "Brad Taylor <bradtaylorsf@gmail.com>",
+  "license": "MIT License",
   "scripts": {
     "start": "node app.js",
     "monitor": "nodemon app.js",
     "deploy": "gcloud preview app deploy app.yaml",
-    "init-cloudsql": "node app/mysql/model-cloudsql.js"
+    "init-mysql": "node app/db/mysql/model.js"
   },
-  "author": "Brad Taylor <bradtaylorsf@gmail.com>",
-  "license": "MIT License",
   "dependencies": {
     "body-parser": "^1.12.0",
     "cookie-parser": "^1.4.0",

@@ -22,6 +22,9 @@ gulp.task('css', function(){
 gulp.task('js', function() {
   gulp.src(['assets/js/lego.js',
           'assets/js/optimizely.js',
+          'assets/js/swig.js',
+          'assets/js/templates/*.js',
+          'assets/js/canvas.js',
           'assets/js/main.js'])
       .pipe(uglify())
       .pipe(concat('main.min.js'))
@@ -39,6 +42,9 @@ gulp.task('css-dev', function(){
 gulp.task('js-dev', function() {
   gulp.src(['assets/js/lego.js',
           'assets/js/optimizely.js',
+          'assets/js/swig.js',
+          'assets/js/templates/*.js',
+          'assets/js/canvas.js',
           'assets/js/main.js'])
       .pipe(concat('main.min.js'))
       .pipe(gulp.dest('public/'))

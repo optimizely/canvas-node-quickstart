@@ -1,5 +1,6 @@
 {% extends 'layout.swig' %}
 {% block content %}
 	{# Table Example #}
-	{% include "includes/table.swig" %}		
+	{# <a href="#" id="testingSwig">Test Swig</a> #}
+	{% include "includes/table.swig" %}
 {% endblock %}

@@ -2,7 +2,7 @@
 
 var extend = require('lodash').assign;
 var mysql = require('mysql');
-var config = require('../../config/' + process.env.NODE_ENV);
+var config = require('../../../config/' + process.env.NODE_ENV);
 
 
 module.exports = function(config) {
@@ -93,7 +93,7 @@ if (!module.parent) {
   console.log(
     'Running this script directly will allow you to initialize your mysql database.\n' +
     'This script will not modify any existing tables.\n');
-  
+
   createSchema();
 }
 

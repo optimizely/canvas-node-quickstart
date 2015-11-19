@@ -2,7 +2,8 @@ var _  = require('underscore'),
     config = require('../../config/' + process.env.NODE_ENV);
 
 module.exports = {
-	respond: function (req,res,contentType,data,template) {
+  respond: function (req,res,data,template) {
+    var contentType = req.baseUrl.indexOf('/api') == 0 || (req.query && _.has(req.query, 'json') && process.env.NODE_ENV != 'production') ? 'json' : 'html';
     var localData = {};
 
     // Add passed in data
@@ -14,19 +15,16 @@ module.exports = {
     }
 
     // Add config info to the local data
-    if(req.config){
-      _.extend(req.config,{environment: process.env.NODE_ENV });
-      _.extend(localData,{config:req.config});
-    } 
-
+    if(config.public){
+      _.extend(localData,{config:config.public});
+    }
     // Add any query params to the local
     if(req.query){
       _.extend(localData,{query:req.query});
     }
-    
+
     // Add the current URL
-    _.extend(localData,{url:req._parsedUrl});
-		if(contentType == 'json' || (req.query && _.has(req.query, 'json') && process.env.NODE_ENV != 'production')){
+		if(contentType == 'json'){
       delete req.query['json'];
       res.json(localData);
     }else{

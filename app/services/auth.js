@@ -3,9 +3,8 @@ var config = require('../../config/' + process.env.NODE_ENV);
 var responder = require('./responder');
 
 module.exports = {
-  ensureAuthenticated: function (req, res, next) { 
+  ensureAuthenticated: function (req, res, next) {
     var signed_request;
-    debugger;
     // Check if signed request exists and use that if it does
     if(typeof req.query !== 'undefined' && typeof req.query.signed_request !== 'undefined'){
       signed_request = req.query.signed_request;
@@ -17,7 +16,7 @@ module.exports = {
         }else{
           res.cookie('signed_request',signed_request,{secure:true,httpOnly:true});
         }
-        next(); 
+        next();
       }catch(error){
         responder.handleErrors(error,res);
       }
@@ -26,7 +25,7 @@ module.exports = {
       try{
         var userContext = canvasSdk.extractUserContext(config.optimizely.secret,signed_request);
         req.optlyUser = userContext.context;
-        next(); 
+        next();
       }catch(error){
         responder.handleErrors(error,res);
       }
@@ -36,6 +35,6 @@ module.exports = {
         message: 'You are not authorized to use this application.'
       }
       responder.handleErrors(error,res);
-    } 
+    }
   }
 };

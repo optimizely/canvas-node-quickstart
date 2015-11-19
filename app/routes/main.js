@@ -12,7 +12,7 @@ module.exports = function(model) {
 	var router = express.Router();
 
   router.use(bodyParser.urlencoded({extended: false}));
-  
+
   function handleRpcError(err, res) {
     res.status(err.code || 500)
     .json({
@@ -23,10 +23,10 @@ module.exports = function(model) {
 
 	router.get('/', function(req, res) {
 		var data = {
-			first: 'Brad',
-			last: 'Taylor'
+			first: 'John',
+			last: 'Snow'
 		}
-		responder.respond(req,res,'html',data,'index.swig');
+		responder.respond(req,res,data,'index.swig');
 	});
 
 	return router;

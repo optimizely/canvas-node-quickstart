@@ -4,8 +4,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var authService = require('../services/auth');
 var url = require('url');
+var responder = require('../services/responder');
 
-module.exports = function(model) {
+module.exports = function (model) {
 
   var router = express.Router();
 
@@ -19,6 +20,14 @@ module.exports = function(model) {
       internalCode: err.code
     });
   }
+
+  router.get('/', function (req, res) {
+		var data = {
+			first: 'John',
+			last: 'Snow'
+		}
+		responder.respond(req,res,data);
+	});
 
   return router;
 

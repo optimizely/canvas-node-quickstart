@@ -18,7 +18,7 @@ app.set('view cache', false);
 swig.setDefaults({ cache: false });
 app.set('trust proxy', true);
 
-var model = require('./app/mysql/model-cloudsql')(config);
+var model = require('./app/db/mysql/model')(config);
 app.use('/', require('./app/routes/main')(model));
 app.use('/api', require('./app/routes/api')(model));
 
