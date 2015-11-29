@@ -19,10 +19,12 @@
     "express-session": "^1.11.3",
     "gcloud": "^0.21.0",
     "lodash": "^3.3.1",
+    "mongodb": "^2.0.49",
     "mysql": "^2.5.5",
     "optimizely-canvas-sdk": "0.0.2",
     "optimizely-node": "0.0.3",
     "prompt": "^0.2.14",
+    "raven": "^0.9.0",
     "request": "^2.65.0",
     "swig": "^1.4.2",
     "underscore": "^1.8.3"

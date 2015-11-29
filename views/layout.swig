@@ -3,6 +3,14 @@
 		<link rel="stylesheet" href="/main.min.css">
 	</head>
 	<body>
+		<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+			<symbol id="add" viewBox="-590 386 16 16">
+			  <path d="M-575 395v-2h-6v-6h-2v6h-6v2h6v6h2v-6z"/>
+			</symbol>
+			<symbol id="close" viewBox="-289 381 32 32">
+			  <path d="M-261.7 389.8l-4.2-4.2-7.1 7.1-7.1-7.1-4.2 4.2 7.1 7.1-7.1 7.1 4.2 4.2 7.1-7.1 7.1 7.1 4.2-4.2-7.1-7.1z"/>
+			</symbol>
+		</svg>
 		<input type="hidden" id="optimizely_token" value="{{ optlyUser.client.access_token }}" />
 		<input type="hidden" id="project_id" value="{{ optlyUser.environment.current_project }}" />
 
@@ -14,16 +22,15 @@
 				<div class="flex--1 flex flex--column width-1">
 					<div class="flex--none width-1">
 						<!-- top controls -->
-						<ul class="flex push-double--ends header soft-double--sides" data-ui-component="dashboard-toolbar"> 
-							<li class="push-triple--right"> 
-								<h3>Templates <sup class="beta">BETA</sup></h3>
-							</li> 
-							<li class="anchor--right"> 
+						<ul class="flex push-double--ends header soft-double--sides" data-ui-component="dashboard-toolbar">
+							<li class="push-triple--right">
+								<h3>Canvas / Nodejs Quickstart <sup class="beta">BETA</sup></h3>
+							</li>
+							<li class="anchor--right">
 								<div class="lego-button-row--left">
-								  	<button class="lego-button lego-button--brand" id="new-template-btn">New Template</button>
-								  	<button class="lego-button new-template-cancel-btn">Cancel</button>
+								  	<button class="lego-button lego-button--brand" id="show-lightbox">Show Lightbox</button>
 								</div>
-							</li> 
+							</li>
 						</ul>
 
 						<div class="lego-attention lego-attention--bad-news text--center push-double--bottom errormessage"></div>

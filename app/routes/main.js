@@ -13,15 +13,7 @@ module.exports = function(model) {
 
   router.use(bodyParser.urlencoded({extended: false}));
 
-  function handleRpcError(err, res) {
-    res.status(err.code || 500)
-    .json({
-        error: true
-    });
-  }
-
-
-	router.get('/', function(req, res) {
+	router.get('/',function(req, res) {
 		var data = {
 			first: 'John',
 			last: 'Snow'

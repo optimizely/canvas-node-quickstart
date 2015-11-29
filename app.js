@@ -18,7 +18,7 @@ app.set('view cache', false);
 swig.setDefaults({ cache: false });
 app.set('trust proxy', true);
 
-var model = require('./app/db/mysql/model')(config);
+var model = require('./app/db/'+config.dataBackend+'/model')(config);
 app.use('/', require('./app/routes/main')(model));
 app.use('/api', require('./app/routes/api')(model));
 
@@ -31,7 +31,7 @@ app.use(function(err, req, res, next) {
 	responder.handleErrors(err,res,'json');
 });
 
-var server = app.listen(process.env.PORT || 8080, function () {
+var server = app.listen(config.port || 8080, function () {
   var host = server.address().address;
   var port = server.address().port;
   console.log('App listening at http://%s:%s', host, port);

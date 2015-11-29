@@ -32,6 +32,7 @@ module.exports = {
     }else{
       // No valid signed request
       var error = {
+        errorCode: 403,
         message: 'You are not authorized to use this application.'
       }
       responder.handleErrors(error,res);

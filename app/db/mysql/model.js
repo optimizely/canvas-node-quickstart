@@ -14,11 +14,11 @@ module.exports = function(config) {
   }
 
   // [START list]
-  function list(table, key, id, limit, token, cb) {
-    token = token ? parseInt(token, 10) : 0;
+  function list(model, limit, offset, cb) {
+    offset = offset ? parseInt(offset, 10) : 0;
     var connection = getConnection();
     connection.query(
-      'SELECT * FROM ? WHERE ? = ? LIMIT ? OFFSET ?', [table, key, id, limit, token],
+      'SELECT * FROM ?? LIMIT ? OFFSET ?', [model, limit, offset],
       function(err, results) {
         if (err) return cb(err);
         cb(null, results, results.length === limit ? token + results.length : false);
@@ -30,20 +30,20 @@ module.exports = function(config) {
 
 
   // [START create]
-  function create(table, data, cb) {
+  function create(model, data, cb) {
     var connection = getConnection();
-    connection.query('INSERT INTO ? SET ?', [table, data], function(err, res) {
+    connection.query('INSERT INTO ?? SET ?', [model, data], function(err, res) {
       if (err) return cb(err);
-      read(res.insertId, cb);
+      read(model, res.insertId, cb);
     });
     connection.end();
   }
   // [END create]
 
 
-  function read(table, id, cb) {
+  function read(model, id, cb) {
     var connection = getConnection();
-    connection.query('SELECT * FROM ? WHERE `id` = ?', [table, id], function(err, results) {
+    connection.query('SELECT * FROM ?? WHERE `id` = ?', [model, id], function(err, results) {
       if (err) return cb(err);
       if (!results.length) return cb({
         code: 404,
@@ -56,20 +56,20 @@ module.exports = function(config) {
 
 
   // [START update]
-  function update(table, id, data, cb) {
+  function update(model, id, data, cb) {
     var connection = getConnection();
-    connection.query('UPDATE ? SET ? WHERE `id` = ?', [table, data, id], function(err) {
+    connection.query('UPDATE ?? SET ? WHERE `id` = ?', [model, data, id], function(err) {
       if (err) return cb(err);
-      read(id, cb);
+      read(model, id, cb);
     });
     connection.end();
   }
   // [END update]
 
 
-  function _delete(table, id, cb) {
+  function _delete(model, id, cb) {
     var connection = getConnection();
-    connection.query('DELETE FROM ? WHERE `id` = ?', [table, id], cb);
+    connection.query('DELETE FROM ?? WHERE `id` = ?', [model, id], cb);
     connection.end();
   }
 

@@ -14,20 +14,53 @@ module.exports = function (model) {
 
 
   function handleRpcError(err, res) {
-    if (err.code == 404) return res.status(404);
-    res.status(500).json({
-      message: err.message,
-      internalCode: err.code
-    });
+    responder.handleErrors(err, err.code, res, 'json');
   }
 
-  router.get('/', function (req, res) {
-		var data = {
-			first: 'John',
-			last: 'Snow'
-		}
-		responder.respond(req,res,data);
-	});
+  router.get('/:model', function list(req, res) {
+    var limit = req.query.limit ? req.query.limit : 10;
+    var offset = req.query.offset ? req.query.offset : 0;
+    model.list(req.params.model, limit, offset,
+      function(err, entities, cursor) {
+        if (err) { return handleRpcError(err, res); }
+        res.json({
+          items: entities,
+          nextPageToken: cursor
+        });
+      });
+  });
+
+
+  router.post('/:model', function insert(req, res) {
+    model.create(req.params.model, req.body, function(err, entity) {
+      if (err) { return handleRpcError(err, res); }
+      responder.respond(req, res, entity);
+    });
+  });
+
+
+  router.get('/:model/:id', function get(req, res) {
+    model.read(req.params.model, req.params.id, function(err, entity) {
+      if (err) { return handleRpcError(err, res);}
+      responder.respond(req, res, entity);
+    });
+  });
+
+
+  router.put('/:model/:id', function update(req, res) {
+    model.update(req.params.model, req.params.id, req.body, function(err, entity) {
+      if (err) { return handleRpcError(err, res); }
+      responder.respond(req, res, entity);
+    });
+  });
+
+
+  router.delete('/:model/:id', function _delete(req, res) {
+    model.delete(req.params.model, req.params.id, function(err) {
+      if (err) { return handleRpcError(err, res); }
+      responder.respond(req, res, {});
+    });
+  });
 
   return router;
 

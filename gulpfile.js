@@ -10,6 +10,11 @@ gulp.task('build-clean', function() {
 });
 
 
+gulp.task('font', function(){
+  gulp.src(['assets/font/*'])
+    .pipe(gulp.dest('public/'))
+});
+
 gulp.task('css', function(){
   gulp.src(['assets/css/lego.css',
             'assets/css/canvas.css',
@@ -54,6 +59,7 @@ gulp.task('build', function(callback) {
   runSequence('build-clean',
           'css',
           'js',
+          'font',
           callback);
 });
 
@@ -61,6 +67,7 @@ gulp.task('debug-build', function(callback) {
   runSequence('build-clean',
           'css-dev',
           'js-dev',
+          'font',
           callback);
 });
 
