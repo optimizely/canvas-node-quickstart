@@ -5,7 +5,7 @@ module.exports = {
   dataBackend: '',
   sentry: {
     url: ''
-  }
+  },
   gcloud: {
     projectId: ''
   },
@@ -20,6 +20,13 @@ module.exports = {
       password: '',
       host: ''
     }
+  },
+  mongo:{
+    db:'',
+    user:'',
+    password:'',
+    port:'',
+    domain:''
   },
   public:{
     environment: 'local';

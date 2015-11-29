@@ -15,7 +15,8 @@ module.exports = function(config) {
 
   // [START list]
   function list(model, limit, offset, cb) {
-    offset = offset ? parseInt(offset, 10) : 0;
+    limit = limit ? parseInt(limit) : 0;
+    offset = offset ? parseInt(offset, limit) : 0;
     var connection = getConnection();
     connection.query(
       'SELECT * FROM ?? LIMIT ? OFFSET ?', [model, limit, offset],

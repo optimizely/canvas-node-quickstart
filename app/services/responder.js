@@ -1,5 +1,6 @@
 var _  = require('underscore'),
-    config = require('../../config/' + process.env.NODE_ENV);
+    config = require('../../config/' + process.env.NODE_ENV),
+    raven = require("raven");
 
 var sentry;
 if(config.sentry && config.sentry.url !== ''){

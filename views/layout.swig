@@ -43,7 +43,6 @@
 				{% include "includes/sidebar.swig" %}
 			</div>
 		</div>
-		<div id="mask"></div>
 		<script src="/main.min.js"></script>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

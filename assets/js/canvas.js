@@ -48,7 +48,7 @@ optlycanvas.fn = {
 		$(html).centerWidth();
 		$('.lego-dialog__footer .cancel, .lego-dialog__close').on('click',function(e){
 			$(html).remove();
-			$('#mask').hide();
+			$('#mask').remove();
 		});
 
     $('.lego-dialog__footer .submit').on('click',data.submitFn);
