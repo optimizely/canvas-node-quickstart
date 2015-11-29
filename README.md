@@ -10,6 +10,8 @@ The Optimizely Quickstart project is meant to help get started with canvas using
   /db
     /mysql
       model.js
+    /mongodb
+      model.js
   /services
     auth.js
     responder.js
