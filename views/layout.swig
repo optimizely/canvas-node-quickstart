@@ -15,7 +15,7 @@
 		<input type="hidden" id="project_id" value="{{ optlyUser.environment.current_project }}" />
 
 		{# TOP SUB MENU #}
-		{% include "includes/sidebar.swig" %}
+		{% include "includes/toptabs.swig" %}
 
 		<div class="flex--1 flex flex--column main-container full-screen">
 			<div class="flex--1 flex width-1">
