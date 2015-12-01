@@ -29,6 +29,6 @@ module.exports = {
     domain:''
   },
   public:{
-    environment: 'local';
+    environment: 'local'
   }
 };
