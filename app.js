@@ -18,9 +18,15 @@ app.set('view cache', false);
 swig.setDefaults({ cache: false });
 app.set('trust proxy', true);
 
-var model = require('./app/db/'+config.dataBackend+'/model')(config);
-app.use('/', require('./app/routes/main')(model));
-app.use('/api', require('./app/routes/api')(model));
+// Database is optional
+if(typeof config.dataBackend != 'undefined' && (config.dataBackend == 'mysql' || config.dataBackend == 'mongodb')){
+	var model = require('./app/db/'+config.dataBackend+'/model')(config);
+	app.use('/', require('./app/routes/main')(model));
+	app.use('/api', require('./app/routes/api')(model));
+}else{
+	app.use('/', require('./app/routes/main')(null));
+}
+
 
 app.use(express.static('public'));
 

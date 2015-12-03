@@ -8,7 +8,7 @@ var responder = require('../services/responder');
 
 
 module.exports = function(model) {
-
+	// Check for existance of model before using it since the database is optional
 	var router = express.Router();
 
   router.use(bodyParser.urlencoded({extended: false}));
