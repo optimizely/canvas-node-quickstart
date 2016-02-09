@@ -4142,3 +4142,115 @@ body.results2 #saved-reports h6 {
 	top:30px;
 }
 
+#mask {
+	opacity: 0.8;
+	z-index: 999;
+	background-color: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@font-face {
+    font-family: Proxima;
+    src: url(proxima.ttf);
+}
+
+.header {
+    background-color: #031E2A;
+    padding: 10px 20px;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    -webkit-transition: background 0.3s ease;
+    -moz-transition: background 0.3s ease;
+    -ms-transition: background 0.3s ease;
+    -o-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+}
+
+#logo {
+    padding-top: 12px;
+    width: 104px;
+}
+
+.content {
+    margin: 40px;
+    max-width: 800px;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+.CodeMirror {
+    border: 1px solid #eee;
+    height: auto;
+}
+
+#connect_to_optly {
+    height: 40px;
+}
+
+.lego-icon {
+    color: #999999;
+}
+
+#settings_icon {
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.preview img {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 100;
+}
+
+#overlay * {
+    position: relative;
+    top: 30%;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.modal {
+    display:    block;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('/images/35.gif')
+                50% 50%
+                no-repeat;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+#step_configure.hide {
+    display:none;
+}
+
+#step_experiment .lego-table--add-row__controls {
+    width: 120px;
+}

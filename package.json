@@ -1,10 +1,10 @@
 {
-  "name": "canvas-node-quickstart",
+  "name": "headline-testing",
   "version": "1.0.0",
-  "description": "A project to help you get started with canvas using node.js and app engine",
-  "repository": "https://github.com/optimizely/canvas-node-quickstart",
+  "description": "Simple headline testing through an Optimizely Canvas Application",
+  "repository": "https://github.com/optimizely/canvas-headline-testing",
   "private": false,
-  "author": "Brad Taylor <bradtaylorsf@gmail.com>",
+  "author": "Matt Moravec <matt.moravec@optimizely.com>",
   "license": "MIT License",
   "scripts": {
     "start": "node app.js",
