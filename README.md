@@ -1,15 +1,10 @@
 # Optimizely Canvas Node.js Quickstart
 The Optimizely Quickstart project is meant to help get started with canvas using node.js and google app engine. The application handles creating a basic routing structure, database, HTML templates, and an API. It also includes OUI so that the design of your application matches the Optimizely design guidelines.
 <br><br>
-Before you begin any Canvas application please review the following documentation:
-* Canvas Documentation: [Link](https://docs.google.com/document/d/1dgaK6qqV-BrpSjqQOigMTC-YD08uDpn3HnqkW7derHg/edit)
-* Canvas Developer Guide: [Link](https://docs.google.com/document/d/1p1b_HZd7O61IL2NhQGToJP1qCd_gh7hlyXQQbkIlh4E/edit)
-* Design Doc: [Link](https://docs.google.com/document/d/19PvSZVmr5dNhb7EJqsKbFvaMYW5heKAZsgQzxPWcjCk/edit)
-* Guide for Optinauts: [Link](https://docs.google.com/document/d/1F1G2MoctAhCkFzMlp6nDrgCF6HkQHp5DfSMmIkxWwVk/edit)
 
 ## Getting started
-* Read docs above
-* Register new Optimizely Application https://app.optimizely.com/accountsettings/apps/access
+* Read the Canvas Developer Guide: [Link](http://developers.optimizely.com/apps/)
+* Register a new Optimizely Application https://app.optimizely.com/accountsettings/apps/access
 * Install the latest version of Node https://nodejs.org/en/
 * Install Gulp Globally
 ```
@@ -76,13 +71,8 @@ Then to start the app
 node-debug app.js
 ```
 
-## Deploy to Google App Engine (for Optinauts)
+## Deploy to Google App Engine 
 * Sign up for an account if you have not already https://cloud.google.com/
-* Create a new Project and add the following people as owners of the project
-  * bill@optimizely.com
-  * jon@optimizely.com
-  * bradley.taylor@optimizely.com
-* Send an email with the link to your Billing page to bill@optimizely.com to set the billing account to Optimizely
 * Open a terminal window and navigate to your project
 * Run the following command to authorize the SDK and configure your project:
 ```
