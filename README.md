@@ -21,7 +21,7 @@ curl https://sdk.cloud.google.com | bash
 ```
 vim ~/.bash_profile
 ```
-Add the following text at the bottom of the file
+Add the following text at the bottom of the file and then restart your terminal
 ```
 export NODE_ENV=local
 ```
@@ -71,7 +71,7 @@ Then to start the app
 node-debug app.js
 ```
 
-## Deploy to Google App Engine 
+## Deploy to Google App Engine
 * Sign up for an account if you have not already https://cloud.google.com/
 * Open a terminal window and navigate to your project
 * Run the following command to authorize the SDK and configure your project:
